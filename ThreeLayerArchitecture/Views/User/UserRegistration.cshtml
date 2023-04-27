@@ -1,0 +1,120 @@
+﻿@model UserRegistrationViewModel
+
+
+<h1> Registration User</h1>
+
+<html>
+<head>
+
+</head>
+
+<body>
+
+    <form class="form-horizontal" asp-controller="User" asp-action="Registration" method="post">
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="Email">Email:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="Password">Password:</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" asp-for="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="ConfirmPassword">Confirm Password:</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" asp-for="ConfirmPassword">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="FirstName">First Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="FirstName">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="LastName"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="LastName">
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="MobileNumber">Mobile Number:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="MobileNumber">
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="AadharNumber">Aadhar Number:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="AadharNumber">
+                <span asp-validation-for="AadharNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" asp-for="GenderId">Gender:</label>
+            <div>
+                <select class="col-sm-10" asp-for="GenderId">
+                    <option value="">--Select Gender--</option>
+                    @{
+                        foreach (var gen in ViewBag.GenderList)
+                        {
+                            <option value="@gen.Id">@gen.Text</option>
+                        }
+                    }
+
+                </select>
+                <span asp-validation-for="GenderId  " class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            Category
+            @{
+                foreach (var item in ViewBag.CategoryList)
+                {
+                    <label asp-for="Category">
+                    <input type="radio" name="Category" value="@item.Name">@item.Name
+                    </label>
+                }
+                <span asp-validation-for="Category" class="text-danger"></span>
+            }
+            
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" asp-for="TermsConditions" /> Terms&Conditions
+            </label>
+            <span asp-validation-for="TermsConditions" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
