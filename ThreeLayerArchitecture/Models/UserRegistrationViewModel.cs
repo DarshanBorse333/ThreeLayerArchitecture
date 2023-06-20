@@ -11,7 +11,7 @@ namespace ThreeLayerArchitecture.Models
 
         [Required]
         [EmailAddress]
-        [Remote(action: "IsEmailIdValid", controller: "User")]
+        //[Remote(action: "IsEmailIdValid", controller: "User")]
         public string? Email { get; set; }
         [Required]
         [Display(Name = "First Name")]

@@ -65,20 +65,20 @@ namespace ThreeLayerArchitecture.Controllers
             return View("UserRegistration",userVM);
         }
 
-        public IActionResult IsEmailIdValid(string Email)
-        {
-            MvcprojectContext db = new MvcprojectContext();
-            var isEmailIdPresentInDB = db.Users.Any(u => u.Email == Email);
-            if (isEmailIdPresentInDB == true)
-            {
-                return Json("Entered Email is alredy Exist, please enter different Email");
-            }
-            else
-            {
-                return Json(true);
-            }
+        //public IActionResult IsEmailIdValid(string Email)
+        //{
+        //    MvcprojectContext db = new MvcprojectContext();
+        //    var isEmailIdPresentInDB = db.Users.Any(u => u.Email == Email);
+        //    if (isEmailIdPresentInDB == true)
+        //    {
+        //        return Json("Entered Email is alredy Exist, please enter different Email");
+        //    }
+        //    else
+        //    {
+        //        return Json(true);
+        //    }
 
-        }
+        //}
 
 
         [HttpGet]
@@ -88,6 +88,12 @@ namespace ThreeLayerArchitecture.Controllers
             userRepository.DeleteUser(id);
             return RedirectToAction("Index");
  
+        }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            return View();
         }
     }
 }
